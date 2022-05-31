@@ -1,54 +1,16 @@
-import { c as create_ssr_component } from "../../chunks/index-d88a766f.js";
-import { w as writable } from "../../chunks/index-5d0df34e.js";
-import nightwind from "nightwind/helper.js";
+import { c as create_ssr_component, e as escape } from "../../chunks/index-2dc61825.js";
 var app = "";
-const nwind = nightwind;
-nwind.dark = writable(false);
-nwind.oldtoggle = nwind.toggle;
-nwind.oldenable = nwind.enable;
-nwind.getDark = () => {
-  const persistedColorPreference = window.localStorage.getItem("nightwind-mode");
-  const hasPersistedPreference = typeof persistedColorPreference === "string";
-  if (hasPersistedPreference) {
-    return persistedColorPreference === "dark" ? true : false;
-  }
-  const mql = window.matchMedia("(prefers-color-scheme: dark)");
-  const hasMediaQueryPreference = typeof mql.matches === "boolean";
-  if (hasMediaQueryPreference) {
-    return mql.matches;
-  }
-  return false;
-};
-nwind.mount = () => {
-  nwind.dark.set(nwind.getDark());
-  (function() {
-    function getInitialColorMode() {
-      const persistedColorPreference = window.localStorage.getItem("nightwind-mode");
-      const hasPersistedPreference = typeof persistedColorPreference === "string";
-      if (hasPersistedPreference) {
-        return persistedColorPreference;
-      }
-      const mql = window.matchMedia("(prefers-color-scheme: dark)");
-      const hasMediaQueryPreference = typeof mql.matches === "boolean";
-      if (hasMediaQueryPreference) {
-        return mql.matches ? "dark" : "light";
-      }
-      return "light";
-    }
-    getInitialColorMode() == "light" ? document.documentElement.classList.remove("dark") : document.documentElement.classList.add("dark");
-  })();
-};
-nwind.toggle = () => {
-  let value;
-  nwind.dark.subscribe((_) => value = _)();
-  nwind.dark.set(!value);
-  nwind.oldtoggle();
-};
-nwind.enable = (dark) => {
-  nwind.dark.set(dark);
-  nwind.oldenable(dark);
-};
+async function load(event) {
+  return { props: { session: event.session } };
+}
 const _layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `${slots.default ? slots.default({}) : ``}`;
+  let { session } = $$props;
+  if ($$props.session === void 0 && $$bindings.session && session !== void 0)
+    $$bindings.session(session);
+  return `<ul class="${"flex h-screen max-h-screen flex-col bg-gradient-to-tl from-rose-600 to-violet-400 text-gray-200"}"><li class="${"m-3 mt-0 flex max-h-12 content-center rounded-t-none bg-transparent p-2 py-4"}"><span class="${"grow text-center font-bold"}"><div class="${"group h-fit"}">A GameJolt Game
+		</div></span>
+    ${session.user ? `<span class="${"absolute right-3 top-4 shrink"}">${escape(session.user.username)}</span>` : `<a href="${"/gamejolt"}" class="${"absolute right-3 top-4 shrink"}">Not Logged in</a>`}</li>
+  <li class="${"grid h-full max-h-full place-items-center"}">${slots.default ? slots.default({}) : ``}</li>
+    <li class="${"flex max-h-12 content-center rounded-t-none bg-transparent p-2 py-none"}"><span class="${"group grow text-center font-bold"}">Created by <a href="${"https://github.com/Cons0r"}" class="${"absolute px-1 hover:scale-110 hover:-translate-y-1 transition-all hover:text-[#90ee91]"}">@Cons0r</a></span></li></ul>`;
 });
-export { _layout as default };
+export { _layout as default, load };

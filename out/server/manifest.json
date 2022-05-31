@@ -4,22 +4,26 @@
     "src": ".svelte-kit/build/index.js",
     "isEntry": true,
     "imports": [
-      "_index-d88a766f.js"
+      "_index-2dc61825.js"
     ],
     "dynamicImports": [
-      ".svelte-kit/build/hooks.js"
+      "src/hooks.ts"
     ]
+  },
+  "src/routes/api/gamejolt/[username]/[token]/index.ts": {
+    "file": "entries/endpoints/api/gamejolt/_username_/_token_/index.ts.js",
+    "src": "src/routes/api/gamejolt/[username]/[token]/index.ts",
+    "isEntry": true
   },
   "src/routes/__layout.svelte": {
     "file": "entries/pages/__layout.svelte.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "imports": [
-      "_index-d88a766f.js",
-      "_index-5d0df34e.js"
+      "_index-2dc61825.js"
     ],
     "css": [
-      "assets/entries/pages/__layout.svelte-bd40f8c8.css"
+      "assets/entries/pages/__layout.svelte-1d69eb75.css"
     ]
   },
   "src/routes/__error.svelte": {
@@ -27,7 +31,7 @@
     "src": "src/routes/__error.svelte",
     "isEntry": true,
     "imports": [
-      "_index-d88a766f.js"
+      "_index-2dc61825.js"
     ]
   },
   "src/routes/index.svelte": {
@@ -35,33 +39,23 @@
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "imports": [
-      "_index-d88a766f.js"
+      "_index-2dc61825.js"
     ]
   },
-  "src/routes/test/savable.svelte": {
-    "file": "entries/pages/test/savable.svelte.js",
-    "src": "src/routes/test/savable.svelte",
+  "src/routes/gamejolt.svelte": {
+    "file": "entries/pages/gamejolt.svelte.js",
+    "src": "src/routes/gamejolt.svelte",
     "isEntry": true,
     "imports": [
-      "_index-d88a766f.js",
-      "_index-5d0df34e.js"
-    ],
-    "css": [
-      "assets/entries/pages/test/savable.svelte-42d926ec.css"
+      "_index-2dc61825.js"
     ]
   },
-  "_index-d88a766f.js": {
-    "file": "chunks/index-d88a766f.js"
+  "_index-2dc61825.js": {
+    "file": "chunks/index-2dc61825.js"
   },
-  "_index-5d0df34e.js": {
-    "file": "chunks/index-5d0df34e.js",
-    "imports": [
-      "_index-d88a766f.js"
-    ]
-  },
-  ".svelte-kit/build/hooks.js": {
-    "file": "chunks/hooks-1c45ba0b.js",
-    "src": ".svelte-kit/build/hooks.js",
+  "src/hooks.ts": {
+    "file": "chunks/hooks-f487b752.js",
+    "src": "src/hooks.ts",
     "isDynamicEntry": true
   }
 }

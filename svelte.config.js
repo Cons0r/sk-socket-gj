@@ -1,14 +1,13 @@
 import adapter from '@sveltejs/adapter-node';
 import preprocess from 'svelte-preprocess';
 import * as socket from 'socket.io'
-import { realtimeapp } from './realtime.js';
 
 const realtimeserver = {
   name: 'realtimedev',
-  configureServer(server) {
+  async configureServer(server) {
     const io = new socket.Server(server.httpServer)
-
-	realtimeapp(io);
+	global.io = io
+	await import('./realtime.js')
   },
 }
 

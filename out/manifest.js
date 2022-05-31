@@ -3,7 +3,7 @@ export const manifest = {
 	assets: new Set(["favicon.png","robots.txt"]),
 	mimeTypes: {".png":"image/png",".txt":"text/plain"},
 	_: {
-		entry: {"file":"start-60180ee1.js","js":["start-60180ee1.js","chunks/vendor-641c7987.js"],"css":[]},
+		entry: {"file":"start-46996111.js","js":["start-46996111.js","chunks/vendor-8479c64b.js"],"css":[]},
 		nodes: [
 			() => import('./server/nodes/0.js'),
 			() => import('./server/nodes/1.js'),
@@ -24,14 +24,22 @@ export const manifest = {
 			},
 			{
 				type: 'page',
-				id: "test/savable",
-				pattern: /^\/test\/savable\/?$/,
+				id: "gamejolt",
+				pattern: /^\/gamejolt\/?$/,
 				names: [],
 				types: [],
-				path: "/test/savable",
+				path: "/gamejolt",
 				shadow: null,
 				a: [0,3],
 				b: [1]
+			},
+			{
+				type: 'endpoint',
+				id: "api/gamejolt/[username]/[token]",
+				pattern: /^\/api\/gamejolt\/([^/]+?)\/([^/]+?)\/?$/,
+				names: ["username","token"],
+				types: [null,null],
+				load: () => import('./server/entries/endpoints/api/gamejolt/_username_/_token_/index.ts.js')
 			}
 		],
 		validators: async () => {

@@ -1,6 +1,6 @@
-import * as module from '../entries/pages/test/savable.svelte.js';
+import * as module from '../entries/pages/gamejolt.svelte.js';
 
 export { module };
-export const entry = 'pages/test/savable.svelte-26471592.js';
-export const js = ["pages/test/savable.svelte-26471592.js","chunks/vendor-641c7987.js"];
-export const css = ["assets/pages/test/savable.svelte-ab70b088.css"];
+export const entry = 'pages/gamejolt.svelte-840ac2d3.js';
+export const js = ["pages/gamejolt.svelte-840ac2d3.js","chunks/vendor-8479c64b.js"];
+export const css = [];

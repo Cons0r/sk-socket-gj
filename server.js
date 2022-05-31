@@ -1,5 +1,4 @@
 // to use socket.io, this file should be run in lieu of out/index.js
-import { realtimeapp } from './realtime.js';
 import express from 'express';
 import http from 'http';
 import * as socket from 'socket.io';
@@ -10,7 +9,8 @@ const app = express()
 const server = http.createServer(app)
 
 const io = new socket.Server(server);
-realtimeapp(io);
+global.io = io
+await import('./realtime.js')
 
 app.use(originalserver.handler)
 

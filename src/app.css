@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --board-square-size: 5rem;
+    --board-piece-size: 2.5rem;
+}
+
+.square.dark {
+    @apply bg-gray-700
+}
+
+.square.light {
+    @apply bg-gray-50
+}
+
+.square {
+    @apply h-[var(--board-square-size)] w-[var(--board-square-size)] text-center items-center flex justify-center
+}
+
+.piece {
+    @apply rounded-full h-[var(--board-piece-size)] w-[var(--board-piece-size)] shadow-sm hover:scale-110 transition-all cursor-move
+}
+
+.piece.dark {
+    @apply bg-gray-900 hover:bg-gray-800
+}
+
+
+.piece.light {
+    @apply bg-gray-50 hover:bg-gray-100
+}
+
+.board {
+    @apply grid grid-cols-8 grid-rows-[8] shadow-xl rounded-lg
+}
+
+.board .square:nth-child(1) {
+    @apply rounded-tl-3xl
+}
+
+.board .square:nth-child(8) {
+    @apply rounded-tr-3xl
+}
+
+.board .square:nth-child(57) {
+    @apply rounded-bl-3xl
+}
+
+.board .square:nth-child(64) {
+    @apply rounded-br-3xl
+}
